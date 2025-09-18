@@ -2,6 +2,9 @@
   "name": "hello",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+   "node": ">=22.12.0"
+  },
   "dependencies": {
     "@tanstack/react-query": "^5.89.0",
     "@tanstack/react-query-devtools": "^5.83.0",
