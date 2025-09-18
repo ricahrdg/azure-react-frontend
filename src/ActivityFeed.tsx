@@ -9,7 +9,7 @@ function ActivityFeed() {
   const { isPending, error, data, isFetching } = useQuery({
     queryKey: ['Activties'],
     queryFn: async () => {
-      const response = await fetch(
+      /*const response = await fetch(
         'http://127.0.0.1:3000/newEndpoint',
       )
 
@@ -19,7 +19,15 @@ function ActivityFeed() {
 
       const parsed = JSON.parse(text);
 
-      return parsed.activities as Activity[];
+      return parsed.activities as Activity[];*/
+
+      const activities : Activity[] = [
+        {id: 1, type: 'run', distance: 5, duration: 30, broken: false},
+        {id: 2, type: 'cycle', distance: 20, duration: 60, broken: false },
+        {id: 3, type: 'swim', distance: 1, duration: 20,broken: false}
+      ];
+
+      return activities as Activity[];
     },
   })
 
