@@ -1,4 +1,6 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react';
+
+//import { useState } from 'react'
 import ActivityFeed from './ActivityFeed'
 import './App.css'
 
@@ -36,8 +38,22 @@ function App() {
     <h1>Velo.Fit</h1>
     {renderAppContent()}
     {renderAppFooter()}
+    {callApi()}
     </>
   )
+
+  function callApi() {
+    const [data, setData] = useState('');
+
+    useEffect(() => {
+      (async function () {
+        const { text } = await( await fetch(`/api/message`)).json();
+        setData(text);
+      })();
+    });
+
+    return <div>{data}</div>;
+  }
 
   function renderAppContent() {
     //const actFeed = useActivityFeedNative();
